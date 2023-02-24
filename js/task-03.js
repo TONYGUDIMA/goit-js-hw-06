@@ -16,18 +16,9 @@ const images = [
 
 const ul = document.querySelector('.gallery')
 
-const createElementWithParams = (name, params = null) => {
-  const el = document.createElement(name);
-  if (params) {
-    Object.entries(params).forEach(param => {
-      el[param[0]] = param[1];
-    });
-  }
-  return el;
-};
 
 images.forEach(el => {
   const { url, alt} = el 
-  const image = createElementWithParams('img', {src: url, alt: alt, width : 300})
-  ul.append(image)
+  ul.insertAdjacentHTML('afterend', 
+  `<li style = "list-style: none"><img src = ${url} alt = ${alt} width = 200 heigth = 100></li>`)
 })

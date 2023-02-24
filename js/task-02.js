@@ -20,7 +20,12 @@ const createElementWithParams = (name, params = null) => {
   return el;
 };
 
+let array = []
+
+
 ingredients.forEach( el => {
   const element = createElementWithParams('li', {classList : 'item', textContent: el})
-  ul.append(element)
+  array.push(element)
 })
+
+ul.append(...array)
