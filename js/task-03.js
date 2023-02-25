@@ -17,8 +17,8 @@ const images = [
 const ul = document.querySelector('.gallery')
 
 
-images.forEach(el => {
-  const { url, alt} = el 
-  ul.insertAdjacentHTML('afterend', 
-  `<li style = "list-style: none"><img src = ${url} alt = ${alt} width = 200 heigth = 100></li>`)
+const ulItems = images.map(({url, alt}) => {
+  return `<li style="list-style: none"><img src=${url} alt=${alt} width=200 height=100></li>`
 })
+
+ul.insertAdjacentHTML("beforeend", ulItems.join(''))

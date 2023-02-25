@@ -8,7 +8,8 @@ const ingredients = [
 ];
 
 
-const ul = document.querySelector('#ingredients')
+const ingredientsList = document.querySelector("#ingredients");
+
 const createElementWithParams = (name, params = null) => {
   const el = document.createElement(name);
   if (params) {
@@ -20,12 +21,11 @@ const createElementWithParams = (name, params = null) => {
   return el;
 };
 
-let array = []
 
-
-ingredients.forEach( el => {
-  const element = createElementWithParams('li', {classList : 'item', textContent: el})
-  array.push(element)
-})
-
-ul.append(...array)
+const elements = ingredients.map((ingredientName) => {
+  const ingredientsCreatItem = createElementWithParams('li', {textContent : ingredientName})
+  ingredientsCreatItem.classList.add("item");
+  ingredientsCreatItem.style = 'list-style: none'
+  return ingredientsCreatItem;
+});
+ingredientsList.append(...elements);
